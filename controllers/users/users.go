@@ -18,11 +18,13 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 	// Create the new user.
-	if restErr := services.Create(&newUser); restErr != nil {
+	AT, restErr := services.Create(&newUser)
+	if restErr != nil {
 		c.JSON(restErr.Status, restErr)
 		return
 	}
 	// Responde with the created uesr profile.
+	c.SetCookie("access_token", AT, 1000, "/", "localhost:8080", false, false)
 	c.JSON(http.StatusOK, gin.H{
 		"id":    newUser.ID,
 		"email": newUser.Email,
