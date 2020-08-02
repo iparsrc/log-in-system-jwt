@@ -24,10 +24,29 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 	// Responde with the created uesr profile.
-	c.SetCookie("access_token", AT, 1000, "/", "localhost:8080", false, false)
+	c.SetCookie("access_token", AT, 100000, "/", "localhost:8080", false, false)
 	c.JSON(http.StatusOK, gin.H{
 		"id":    newUser.ID,
 		"email": newUser.Email,
 		"name":  newUser.Name,
 	})
+}
+
+func GetUserProfile(c *gin.Context) {
+	AT, err := c.Cookie("access_token")
+	if err != nil {
+		restErr := utils.RESTError{
+			Message: "cookie not found",
+			Status:  400,
+			Error:   "bad request",
+		}
+		c.JSON(restErr.Status, restErr)
+		return
+	}
+	user, restErr := utils.ValidateJwt(AT)
+	if restErr != nil {
+		c.JSON(restErr.Status, restErr)
+		return
+	}
+	c.String(http.StatusOK, user.Email)
 }
