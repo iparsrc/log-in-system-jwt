@@ -12,15 +12,15 @@ If you have the valid access token then you can get the user information otherwi
 Returns a text/plain: <b>pong</b><br/>
 This is simply to check if server is runinng or not.</p>
 <h3>/users/create</h3>
-<p>Send a POST req with a json body. ex) { "name": "Parsa Akbari", "email": "parsaakbari80808080@gmail.com", "password", "12345" }</p>
-<p>Returns an application/json and saves the JWT as a cookie:</p>
-<p>if succeed: <b>{ "id":<user-id>, "name":<user-name>, "email":<user-email> }</b></p>
-<p>if user already exists: <b>{ json containing the error. }</b></p>
+<p>Send a POST req with a json body. ex) { "name": "Parsa Akbari", "email": "parsaakbari80808080@gmail.com", "password", "12345" }<br/>
+Returns an application/json and saves the JWT as a cookie:<br/>
+if succeed: <b>{ "id":<user-id>, "name":<user-name>, "email":<user-email> }</b><br/>
+if user already exists: <b>{ json containing the error. }</b></p>
 <h3>/users/profile</h3>
-<p>Send a GET req.</p>
-<p>Returns an application/json:</p>
-<p>if jwt is valid: <b>{ "id":<user-id>, "name":<user-name>, "email":<user-email> }</b></p>
-<p>else: <b>{ json containing the error. }</b></p>
+<p>Send a GET req.<br/>
+Returns an application/json:<br/>
+if jwt is valid: <b>{ "id":<user-id>, "name":<user-name>, "email":<user-email> }</b><br/>
+else: <b>{ json containing the error. }</b></p>
   
   
   
