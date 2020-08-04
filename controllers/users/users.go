@@ -24,7 +24,7 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 	// Responde with the created uesr profile.
-	c.SetCookie("access_token", AT, 100000, "/", "localhost:8080", false, false)
+	c.SetCookie("access_token", AT, 100000, "/", "localhost:8080", false, true)
 	c.JSON(http.StatusOK, gin.H{
 		"id":    newUser.ID,
 		"email": newUser.Email,

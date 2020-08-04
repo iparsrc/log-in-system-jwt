@@ -2,6 +2,7 @@ package utils
 
 import (
 	"fmt"
+	"strconv"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -14,10 +15,10 @@ const (
 
 func NewJwtString(user *domain.User) (string, *RESTError) {
 	claims := jwt.MapClaims{
-		"id":    user.ID,
+		"id":    strconv.FormatInt(user.ID, 10),
 		"name":  user.Name,
 		"email": user.Email,
-		"exp":   time.Now().UTC().Add(2 * time.Hour).Unix(),
+		"exp":   strconv.FormatInt(time.Now().Add(time.Minute*2).Unix(), 10),
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	tokenString, err := token.SignedString([]byte(secret))
@@ -47,19 +48,27 @@ func ValidateJwt(AT string) (*domain.User, *RESTError) {
 	}
 
 	claims, _ := token.Claims.(jwt.MapClaims)
-	exp, _ := claims["exp"].(int64)
-	userId, _ := claims["id"].(int64)
-	userEmail, _ := claims["id"].(string)
-	if time.Now().UTC().After(time.Unix(exp, 0)) {
+	exp, _ := claims["exp"].(string)
+	userId, _ := claims["id"].(string)
+	userEmail, _ := claims["email"].(string)
+	userName, _ := claims["name"].(string)
+
+	userIdInt, _ := strconv.ParseInt(userId, 10, 64)
+	expInt, _ := strconv.ParseInt(exp, 10, 64)
+
+	if time.Now().Unix() > expInt {
 		return nil, &RESTError{
 			Message: "token is expired.",
 			Status:  400,
 			Error:   "bad request",
 		}
 	}
+
 	user := domain.User{
-		ID:    userId,
+		ID:    userIdInt,
 		Email: userEmail,
+		Name:  userName,
 	}
+
 	return &user, nil
 }
