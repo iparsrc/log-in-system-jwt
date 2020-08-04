@@ -6,14 +6,15 @@ import (
 )
 
 func Create(user *domain.User) (string, *utils.RESTError) {
-	if (domain.Storage[user.ID] != domain.User{}) {
+	if (domain.Storage[user.Email] != domain.User{}) {
 		return "", &utils.RESTError{
 			Message: "user exists",
 			Status:  400,
 			Error:   "bad request",
 		}
 	}
-	domain.Storage[user.ID] = *user
+	user.ID = utils.GetID()
+	domain.Storage[user.Email] = *user
 	AT, restErr := utils.NewJwtString(user)
 	if restErr != nil {
 		return "", restErr

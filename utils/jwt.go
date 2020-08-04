@@ -19,10 +19,10 @@ const (
 func NewJwtString(user *domain.User) (string, *RESTError) {
 	// Set JWT claims.
 	claims := jwt.MapClaims{
+		"id":    user.ID,
 		"name":  user.Name,
 		"email": user.Email,
-		"id":    strconv.FormatInt(user.ID, 10),
-		"exp":   strconv.FormatInt(time.Now().Add(time.Minute*2).Unix(), 10),
+		"exp":   strconv.FormatInt(time.Now().Add(time.Minute*5).Unix(), 10),
 	}
 	// Create and sign the token.
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
@@ -62,8 +62,7 @@ func ValidateJwt(AT string) (*domain.User, *RESTError) {
 	userId, _ := claims["id"].(string)
 	userName, _ := claims["name"].(string)
 	userEmail, _ := claims["email"].(string)
-	// Change the id and exp type from string to int64.
-	userIdInt, _ := strconv.ParseInt(userId, 10, 64)
+	// Change the exp type from string to int64.
 	expInt, _ := strconv.ParseInt(exp, 10, 64)
 	// Check, if the token in expired or not.
 	if time.Now().Unix() > expInt {
@@ -75,7 +74,7 @@ func ValidateJwt(AT string) (*domain.User, *RESTError) {
 	}
 	// Create the user, based on the claims.
 	user := domain.User{
-		ID:    userIdInt,
+		ID:    userId,
 		Email: userEmail,
 		Name:  userName,
 	}
