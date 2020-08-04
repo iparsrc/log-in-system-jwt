@@ -12,7 +12,7 @@ If you have the valid access token then you can get the user information otherwi
 Returns a text/plain: <b>pong</b><br/>
 This is simply to check if server is runinng or not.</p>
 <h3>/users/create</h3>
-<p>Send a POST req with a json body. ex) { "name": "Parsa Akbari", "email": "parsaakbari80808080@gmail.com", "password", "12345" }<br/>
+<p>Send a POST req with a json body. ex) <b>{ "name": "Parsa Akbari", "email": "parsaakbari80808080@gmail.com", "password", "12345" }</b><br/>
 Returns an application/json and saves the JWT as a cookie:<br/>
 if succeed: <b>{ "id":<user-id>, "name":<user-name>, "email":<user-email> }</b><br/>
 if user already exists: <b>{ json containing the error. }</b></p>
