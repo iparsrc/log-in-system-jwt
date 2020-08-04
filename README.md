@@ -13,14 +13,14 @@ Returns a text/plain: <b>pong</b><br/>
 This is simply to check if server is runinng or not.</p>
 <h3>/users/create</h3>
 <p>Send a POST req with a json body. ex)<br/>
-<code><b background:"gray">{<br/> "name": "Parsa Akbari",<br/> "email": "parsaakbari80808080@gmail.com",<br/> "password": "12345"<br/> }</b></code><br/>
+<code>{ "name": "Parsa Akbari", "email": "parsaakbari80808080@gmail.com", "password": "12345" }</code><br/>
 Returns an application/json and saves the JWT as a cookie:<br/>
-if succeed:<br/> <b>{<br/> "id": &lt;user-id&gt;,<br/> "name": &lt;user-name&gt;,<br/> "email": &lt;user-email&gt;<br/> }</b><br/>
+if succeed:<code>{ "id": &lt;user-id&gt;, "name": &lt;user-name&gt;, "email": &lt;user-email&gt; }</code><br/>
 if user already exists: <b>{ json containing the error. }</b></p>
 <h3>/users/profile</h3>
 <p>Send a GET req.<br/>
 Returns an application/json:<br/>
-if jwt is valid:<br/> <b>{<br/> "id": &lt;user-id&gt;,<br/> "name": &lt;user-name&gt;,<br/> "email": &lt;user-email&gt;<br/> }</b><br/>
+if jwt is valid: <code>{ "id": &lt;user-id&gt;, "name": &lt;user-name&gt;, "email": &lt;user-email&gt; }</code><br/>
 else: <b>{ json containing the error. }</b></p>
   
   
