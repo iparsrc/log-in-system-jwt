@@ -15,13 +15,13 @@ This is simply to check if server is runinng or not.</p>
 <p>Send a POST req with a json body. ex)<br/>
 <code>{ "name": "Parsa Akbari", "email": "parsaakbari80808080@gmail.com", "password": "12345" }</code><br/>
 Returns an application/json and saves the JWT as a cookie:<br/>
-if succeed:<code>{ "id": &lt;user-id&gt;, "name": &lt;user-name&gt;, "email": &lt;user-email&gt; }</code><br/>
-if user already exists: <b>{ json containing the error. }</b></p>
+if succeed:<br/><code>{ "id": &lt;user-id&gt;, "name": &lt;user-name&gt;, "email": &lt;user-email&gt; }</code><br/>
+if user already exists: <br/><code>{ json containing the error. }</code></p>
 <h3>/users/profile</h3>
 <p>Send a GET req.<br/>
 Returns an application/json:<br/>
-if jwt is valid: <code>{ "id": &lt;user-id&gt;, "name": &lt;user-name&gt;, "email": &lt;user-email&gt; }</code><br/>
-else: <b>{ json containing the error. }</b></p>
+if jwt is valid: <br/><code>{ "id": &lt;user-id&gt;, "name": &lt;user-name&gt;, "email": &lt;user-email&gt; }</code><br/>
+else: <br/><code>{ json containing the error. }</code></p>
   
   
   
