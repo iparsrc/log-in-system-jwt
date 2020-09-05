@@ -1,5 +1,5 @@
 # simple-log-in-system-jwt  
-In This simple JWT authorization system, you can create an in-memory user and get a valid JWT for one hour.  
+In this simple JWT authorization system, you can create an in-memory user and get a valid JWT for one hour.  
 If you have the valid access token then you can get the user information otherwise you will get an error.  
 There are only three endpoints:  
 ```
@@ -49,10 +49,11 @@ if jwt is valid:
   "email": user-email  
 }  
 ```
-else:  
+else: 
+```
 {  
 json containing the error.  
 }    
-  
+```
   
   
