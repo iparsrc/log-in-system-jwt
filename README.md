@@ -14,9 +14,7 @@ Returns a text/plain:
 pong
 ```
 This is simply to check if server is runinng or not.  
-```
-/users/create  
-```
+## /users/create  
 Send a POST req with a json body. ex)  
 ```
 {  
