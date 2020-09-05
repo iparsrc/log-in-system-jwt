@@ -29,9 +29,9 @@ Returns an application/json and saves the JWT as a cookie:
 if succeed:  
 '''
 {  
-  "id": &lt;user-id&gt;,  
-  "name": &lt;user-name&gt;,  
-  "email": &lt;user-email&gt;  
+  "id": <user-id>,  
+  "name": <user-name>;,  
+  "email": <user-email>;  
 }  
 '''
 if user already exists:  
@@ -46,9 +46,9 @@ Returns an application/json:
 if jwt is valid:  
 '''
 {  
-  "id": &lt;user-id&gt;,  
-  "name": &lt;user-name&gt;,  
-  "email": &lt;user-email&gt;  
+  "id": <user-id>,  
+  "name": <user-name>,  
+  "email": <user-email>  
 }  
 '''
 else:  
