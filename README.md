@@ -13,7 +13,7 @@ Returns a text/plain:
 ```
 pong
 ```
-This is simply to check if server is runinng or not.  
+This is simply to check if server is running or not.  
 ## /users/create  
 Send a POST req with a json body. ex)  
 ```
