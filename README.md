@@ -13,9 +13,9 @@ Returns a text/plain:
 ```
 pong
 ```
-This is simply to check if server is running or not.  
+This is simply to check if the server is running or not.  
 ## /users/create  
-Send a POST req with a json body. ex)  
+Send a POST request with a json body:   
 ```
 {  
   "name": "Parsa Akbari",  
@@ -32,14 +32,14 @@ if succeed:
   "email": user-email;  
 }  
 ```
-if user already exists:  
+if the user already exists:  
 ```
 {  
   json containing the error.  
 }  
 ```
 ## /users/profile  
-Send a GET req.  
+Send a GET request.  
 Returns an application/json:  
 if jwt is valid:  
 ```
