@@ -24,15 +24,15 @@ Send a POST request with a json body:
 }  
 ```
 Returns an application/json and saves the JWT as a cookie:  
-if succeed:  
+If succeed:  
 ```
 {  
-  "id": user-id,  
-  "name": user-name;,  
-  "email": user-email;  
+  "id": "<user-id>",  
+  "name": "<user-name>",  
+  "email": "<user-email>"  
 }  
 ```
-if the user already exists:  
+If the user already exists:  
 ```
 {  
   json containing the error.  
@@ -41,18 +41,18 @@ if the user already exists:
 ## /users/profile  
 Send a GET request.  
 Returns an application/json:  
-if jwt is valid:  
+If jwt is valid:  
 ```
 {  
-  "id": user-id,  
-  "name": user-name,  
-  "email": user-email  
+  "id": "<user-id>",  
+  "name": "<user-name,  
+  "email": "<user-email>"  
 }  
 ```
-else: 
+Else: 
 ```
 {  
-json containing the error.  
+  json containing the error.  
 }    
 ```
   
